@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="x-admin-sm" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.2</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/xadmin.css">
+    <script src="/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+</head>
+
+<body>
+<div class="x-nav">
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"
+       onclick="location.reload()" title="刷新">
+        <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i>
+    </a>
+</div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">
+                    <button class="layui-btn" onclick="xadmin.open('添加记录','/HealthCardAdd',800,600)">
+                        <i class="layui-icon"></i>添加
+                    </button>
+                </div>
+                <div class="layui-card-body " style="overflow: scroll">
+                    <table id="demo" class="layui-table layui-form">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>年龄</th>
+                            <th>报告时间</th>
+                            <th>送检医生</th>
+                            <th>科室</th>
+                            <th>采集时间</th>
+                            <th>联络电话</th>
+                            <th>乙肝表面抗原检测结果</th>
+                            <th>乙肝表面抗原参考范围</th>
+                            <th>乙肝表面抗体检测结果</th>
+                            <th>乙肝表面抗体参考范围</th>
+                            <th>乙肝表面e抗原检测结果</th>
+                            <th>乙肝表面e抗原参考范围</th>
+                            <th>乙肝表面e抗体检测结果</th>
+                            <th>乙肝表面e抗体参考范围</th>
+                            <th>乙肝表面核心抗体检测结果</th>
+                            <th>乙肝表面核心抗体参考范围</th>
+                            <th>丙肝检测结果</th>
+                            <th>丙肝参考范围</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="hc:${HealthCardList}">
+                            <td th:text="${hc.getId()}"></td>
+                            <td th:text="${hc.getPatientName()}"></td>
+                            <td th:text="${hc.getPatientGender()}"></td>
+                            <td th:text="${hc.getPatientAge()}"></td>
+                            <td th:text="${hc.getReportingTime()}"></td>
+                            <td th:text="${hc.getSendingDoctor()}"></td>
+                            <td th:text="${hc.getDepartment()}"></td>
+                            <td th:text="${hc.getCollectingTime()}"></td>
+                            <td th:text="${hc.getPhoneNumber()}"></td>
+                            <td th:text="${hc.getAntigen()}"></td>
+                            <td th:text="'阴性'"></td>
+                            <td th:text="${hc.getAntibody()}"></td>
+                            <td th:text="'阴性或阳性'"></td>
+                            <td th:text="${hc.geteAntigen()}"></td>
+                            <td th:text="'阴性'"></td>
+                            <td th:text="${hc.geteAntibody()}"></td>
+                            <td th:text="'阴性'"></td>
+                            <td th:text="${hc.getCoreAntibody()}"></td>
+                            <td th:text="'阴性'"></td>
+                            <td th:text="${hc.getHepatitis()}"></td>
+                            <td th:text="'阴性'"></td>
+                            <td th:text="${hc.getCreatedAt()}"></td>
+                            <td class="td-manage">
+                                <a title="查看" th:href="@{/HealthCardPDF/}+${hc.getId()}+'.PDF'" target="_blank">
+                                    <i class="layui-icon">&#xe63c;</i></a>
+                                <a title="删除" th:href="@{/HealthCardDel/}+${hc.getId()}"><i
+                                        class="layui-icon">&#xe640;</i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align:center">
+                        <a th:href="@{?start=0}">首 页</a>
+                        <a th:href="@{?start=}+${(page.getStart() - 1) < 0 ? 0 : (page.getStart() - 1)}">上一页</a>
+                        <a th:href="@{?start=}+${(page.getStart() + 1) > page.getLast() ? page.getLast() : (page.getStart() + 1)}">下一页</a>
+                        <a th:href="@{?start=}+${page.getLast()}">末 页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+</script>
+</html>

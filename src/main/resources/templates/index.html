@@ -1,0 +1,167 @@
+<!doctype html>
+<html class="x-admin-sm">
+<head>
+    <meta charset="UTF-8">
+    <title>报单系统</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/xadmin.css">
+    <!-- <link rel="stylesheet" href="/static/css/theme5.css"> -->
+    <script src="/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+        // 是否开启刷新记忆tab功能
+        // var is_remember = false;
+    </script>
+</head>
+<body class="index">
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo">
+        <a href="/index">报单系统</a>
+    </div>
+<!--    <ul class="layui-nav right" lay-filter="">-->
+<!--        <li class="layui-nav-item">-->
+<!--            <a href="javascript:;">admin</a>-->
+<!--            <dl class="layui-nav-child">-->
+<!--                &lt;!&ndash; 二级菜单 &ndash;&gt;-->
+<!--                <dd><a onclick="xadmin.open('个人信息','http://www.baidu.com')">个人信息</a></dd>-->
+<!--                <dd><a onclick="xadmin.open('切换帐号','http://www.baidu.com')">切换帐号</a></dd>-->
+<!--                <dd><a href="/login">退出</a></dd>-->
+<!--            </dl>-->
+<!--        </li>-->
+<!--    </ul>-->
+</div>
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<!-- 左侧菜单开始 -->
+<div class="left-nav">
+    <div id="side-nav">
+        <ul id="nav">
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="报单管理">&#xe723;</i>
+                    <cite>报单管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+                <ul class="sub-menu">
+                    <li>
+                        <a onclick="xadmin.add_tab('CRP','/crpList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>CRP</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('HIV','/hivList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>HIV</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('白带常规','/LeukocyteRoutineList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>白带常规</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('抗原抗体','/AntigenAndAntibodyList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>抗原抗体</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('粪便常规','/FecesList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>粪便常规</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('谷丙','/GuCList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>谷丙</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('健康证','/HealthCardList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>健康证</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('两对半','/TwoAndHalfList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>两对半</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('尿液常规','/UrineRoutineList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>尿液常规</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('前列腺液','/ProstateFluidList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>前列腺液</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('妊娠实验','/PregnancyList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>妊娠实验</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('糖化','/GlycationList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>糖化</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('血清','/SerumList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>血清</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('血糖','/BloodSugarList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>血糖</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('孕妇体检','/PregnantWomenList')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>孕妇体检</cite></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- <div class="x-slide_left"></div> -->
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体开始 -->
+<div class="page-content">
+    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+        <ul class="layui-tab-title">
+            <li class="home">
+                <i class="layui-icon">&#xe68e;</i>起始页
+            </li>
+        </ul>
+        <div class="layui-unselect layui-form-select layui-form-selected" id="tab_right">
+            <dl>
+                <dd data-type="this">关闭当前</dd>
+                <dd data-type="other">关闭其它</dd>
+                <dd data-type="all">关闭全部</dd>
+            </dl>
+        </div>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <iframe src='/welcome' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+            </div>
+        </div>
+        <div id="tab_show"></div>
+    </div>
+</div>
+<div class="page-content-bg"></div>
+<style id="theme_style"></style>
+<!-- 右侧主体结束 -->
+<!-- 中部结束 -->
+</body>
+
+</html>
