@@ -24,4 +24,6 @@
 
 ## 启动方式
 
-根据项目 sql 目录下的脚本文件创建 hospital 数据库，修改 Spring Boot 配置文件中的数据库连接地址，启动该项目，访问 `http://localhost:8888/` 查看系统主页面。
+1. 根据项目 sql 目录下提供的脚本文件创建 hospital 数据库；
+2. 修改 Spring Boot 配置文件中的数据库连接地址；
+3. 启动项目，访问 `http://localhost:8888/` 查看系统主页面。
