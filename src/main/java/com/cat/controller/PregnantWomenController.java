@@ -82,14 +82,10 @@ public class PregnantWomenController {
             form.setField("t12", entity.getRh());
             form.setField("t13", "HBSAg");
             form.setField("t14", entity.getHbsag());
-            form.setField("t15", "HBSAb");
-            form.setField("t16", entity.getHbsab());
-            form.setField("t17", "RPR");
-            form.setField("t18", entity.getRpr());
-            form.setField("t19", "丙肝");
-            form.setField("t20", entity.getHepatitis());
-            form.setField("t21", "HIV");
-            form.setField("t22", entity.getHiv());
+            form.setField("t15", "丙肝");
+            form.setField("t16", entity.getHepatitis());
+            form.setField("t17", "HIV");
+            form.setField("t18", entity.getHiv());
             stamper.setFormFlattening(false);
             stamper.close();
             pdfReader = new PdfReader(baos.toByteArray());

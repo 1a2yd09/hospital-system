@@ -11,3 +11,5 @@ spring:
     cache: false
   main:
     banner-mode: off
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
